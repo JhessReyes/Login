@@ -2392,6 +2392,9 @@ html {
 .max-w-sm {
   max-width: 24rem;
 }
+.max-w-full {
+  max-width: 100%;
+}
 .flex-shrink-0 {
   flex-shrink: 0;
 }
