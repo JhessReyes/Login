@@ -11,46 +11,12 @@
     <div class="container mx-auto px-auto" {{-- style="padding: 20%" --}}>
         <div class="form-group col-md-12">
             <div class="row content-center" style="text-align: center">
-                <div class="max-h-full content-center">
-
-                    <form action="{{ '/login' }}" enctype="multipart/form-data" method="POST">
-                        @method('POST')
-                        @csrf
-                        <div class="hero min-h-screen min-w-screen bg-base-200" style="background-image: url(https://winaero.com/blog/wp-content/uploads/2021/11/Windows-11-lock-screen-backgrounds.jpg);">
-                            <div class="hero-content flex-col lg:flex-row-reverse">
-                                <div class="text-center lg:text-left" style="padding: 5%">
-                                    <h1 class="text-5xl font-bold">Login</h1>
-                                    <p class="py-8">Enter credentials.</p>
-                                </div>
-                                <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                                    <div class="card-body" style="background-color: rgba(255, 255, 255, 0.2)">
-                                        <div class="form-control">
-                                            <label class="label">
-                                                <span class="label-text">Email</span>
-                                            </label>
-                                            <input type="email" placeholder="email" name="email" required
-                                                class="input input-bordered" />
-                                        </div>
-                                        <div class="form-control">
-                                            <label class="label">
-                                                <span class="label-text">Password</span>
-                                            </label>
-                                            <input type="password" placeholder="password" name="password" required
-                                                class="input input-bordered" />
-                                            <label class="label">
-                                                <a href="#" class="label-text-alt link link-hover">Forgot
-                                                    password?</a>
-                                            </label>
-                                        </div>
-                                        <div class="form-control mt-6">
-                                            <button class="btn btn-primary">Login</button>
-                                            {{-- <button class="btn btn-primary loading">loading</button> --}}
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                <div class="max-h-full content-center glass">
+                    <div class="hero min-h-screen min-w-screen">
+                        <div class="mockup-window border bg-base-300">
+                            <div class="flex justify-center px-4 py-16 bg-base-200">Welcome: {{ $user[0]->name }}</div>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
