@@ -12,7 +12,26 @@
         <div class="form-group col-md-12">
             <div class="row content-center" style="text-align: center">
                 <div class="max-h-full content-center">
-
+                    @if (Session::has('message-error'))
+{{--                         <div class="alert alert-error shadow-md">
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current flex-shrink-0 h-6 w-6"
+                                    fill="none" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                                <span>{{ Session::get('message-error') }} </span>
+                            </div>
+                        </div> --}}
+                        <div class="badge badge-error gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                class="inline-block w-4 h-4 stroke-current">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                            {{ Session::get('message-error') }} 
+                        </div>
+                    @endif
                     <form action="{{ '/login' }}" enctype="multipart/form-data" method="POST">
                         @method('POST')
                         @csrf
@@ -39,7 +58,7 @@
                                             <input type="password" placeholder="password" name="password" required
                                                 class="input input-bordered" />
                                             <label class="text-right">
-                                                <a href="{{'/signup'}}" class="label-text-alt link link-hover">
+                                                <a href="{{ '/signup' }}" class="label-text-alt link link-hover">
                                                     Sign Up
                                                 </a>
                                             </label>

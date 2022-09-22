@@ -11,6 +11,7 @@ class LoginController extends Controller
     //
     public function login(Request $request)
     {
+        $request->session()->forget('message-error', 0);
         try {
             $res = DB::select(
                 'select * from dbo.fn_validate (?, ?)',
@@ -19,9 +20,18 @@ class LoginController extends Controller
                     $request->password
                 )
             );
-            if ($res[0]->name != null)
+            if ($res[0]->name != null) {
+                $request->session()->now('message', $res[0]->message);
                 return view('welcome', ['user' => $res]);
-            else return view('login')->with(['message' => 'a']);
+            } else {
+                if ($request->session()->has('message-error') && $request->session()->get('message-error') != '') {
+                    $request->session()->forget('message-error');
+                } else {
+                    $request->session()->put('message-error', $res[0]->message);
+                }
+                /*  $request->session()->now('message-error', $res[0]->message); */
+                return view('login');
+            }
         } catch (\Throwable $th) {
             return view('login');
         }
