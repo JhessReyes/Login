@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <div class="container mx-auto px-auto" {{-- style="padding: 20%" --}}>
+    <div class="mx-auto px-auto" {{-- style="padding: 20%" --}}>
         <div class="form-group col-md-12">
             <div class="row content-center" style="text-align: center">
                 <div class="max-h-full content-center">
