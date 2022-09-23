@@ -29,7 +29,7 @@ class LoginController extends Controller
                 $log['email'] = $request->email;
                 $log['created_at'] = now();
                 AccessLog::insert($log);
-                
+
                 return view('welcome', ['user' => $res]);
             } else {
                 if ($request->session()->has('message-error') && $request->session()->get('message-error') != '') {
@@ -41,7 +41,7 @@ class LoginController extends Controller
                 return view('login');
             }
         } catch (\Throwable $th) {
-            return $th . "a";
+            /* return $th . "a"; */
             return view('login');
         }
     }

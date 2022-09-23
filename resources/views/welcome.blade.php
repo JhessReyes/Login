@@ -25,6 +25,9 @@
                     <div class="hero min-h-screen min-w-screen">
                         <div class="mockup-window border bg-base-300">
                             <div class="flex justify-center px-4 py-16 bg-base-200">Welcome: {{ $user[0]->name }}</div>
+
+                            <a href="{{ '/' }}" class="btn btn-warning" style="margin: 10px">Close</a>
+                            <br>
                         </div>
                     </div>
                 </div>
